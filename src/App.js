@@ -22,7 +22,6 @@ class App extends Component {
     this.setState({inputValue: ""})
   }
   handleRemove = (event) => {
-    console.log(event.target.attributes.index.value)
     let thisIndex = event.target.attributes.index.value
     this.state.listOfTodos.splice(thisIndex,1)
     this.setState({listOfTodos:[...this.state.listOfTodos]})
@@ -41,18 +40,13 @@ class App extends Component {
 
           <ol>{this.state.listOfTodos.map((item, index) => {
 
-            return <div key={index} index={index} className="lidiv"> 
+            return <div key={index} className="lidiv"> 
                       <li>{item}</li>
                       <button index={index} onClick={this.handleRemove}>Completed</button>
                     </div>
 
           })}</ol>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a>
             {this.props.name}
           </a>
         </header>
