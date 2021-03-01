@@ -23,8 +23,9 @@ class App extends Component {
   }
   handleRemove = (event) => {
     let thisIndex = event.target.attributes.index.value
-    this.state.listOfTodos.splice(thisIndex,1)
-    this.setState({listOfTodos:[...this.state.listOfTodos]})
+    let list = this.state.listOfTodos
+    list.splice(thisIndex, 1)
+    this.setState({listOfTodos:[...list]})
   }
 
   render () {
@@ -46,9 +47,11 @@ class App extends Component {
                     </div>
 
           })}</ol>
+
           <a>
             {this.props.name}
           </a>
+          
         </header>
       </div>
    );
