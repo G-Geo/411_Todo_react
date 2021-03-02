@@ -21,10 +21,10 @@ class App extends Component {
     this.setState({listOfTodos:[...this.state.listOfTodos, this.state.inputValue]})
     this.setState({inputValue: ""})
   }
-  handleRemove = (event) => {
-    let thisIndex = event.target.attributes.index.value
+  handleRemove = (index) => {
+    // let thisIndex = event.target.attributes.index.value
     let list = this.state.listOfTodos
-    list.splice(thisIndex, 1)
+    list.splice(index, 1)
     this.setState({listOfTodos:[...list]})
   }
 
@@ -43,7 +43,7 @@ class App extends Component {
 
             return <div key={index} className="lidiv"> 
                       <li>{item}</li>
-                      <button index={index} onClick={this.handleRemove}>Completed</button>
+                      <button index={index} onClick={(index)=>{this.handleRemove(index)}}>Completed</button>
                     </div>
 
           })}</ol>
